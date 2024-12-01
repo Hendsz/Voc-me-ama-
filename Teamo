@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Você me ama?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="question">Você me ama?</h1>
+    <button onclick="nextStep(true)">Sim</button>
+    <button onclick="nextStep(false)">Não</button>
+  </div>
+
+  <script>
+    function nextStep(love) {
+      const question = document.getElementById("question");
+      const buttons = document.querySelectorAll("button");
+
+      if (love) {
+        question.textContent = "Então se você me ama, me dá o cu?";
+        buttons[0].textContent = "Sim";
+        buttons[1].textContent = "Não";
+
+        buttons[0].onclick = () => alert("Sabia que você me ama de verdade!");
+        buttons[1].onclick = () => alert("Ah, então não me ama tanto assim...");
+      } else {
+        question.textContent = "Poxa, isso dói 😢";
+        buttons.forEach((btn) => btn.remove());
+      }
+    }
+  </script>
+</body>
+</html>
